@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -o errexit  # exit on error
+set -o errexit
 
 # Build frontend
 cd frontend
