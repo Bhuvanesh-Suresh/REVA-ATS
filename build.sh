@@ -1,12 +1,15 @@
 #!/usr/bin/env bash
-# Build React app (Vite)
+set -o errexit  # exit on error
+
+# Build frontend
 cd frontend
 npm install
 npm run build
 
-# Copy Vite build output to Flask static folder
-rm -rf ../backend/static
+# Move built files to backend/static
 mkdir -p ../backend/static
 cp -r dist/* ../backend/static/
 
-echo "✅ Vite build completed and copied to backend/static"
+# Install backend requirements
+cd ../backend
+pip install -r requirements.txt
