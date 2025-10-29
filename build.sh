@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-# Build React app
+# Build React app (Vite)
 cd frontend
 npm install
 npm run build
 
-# Move build to Flask static folder
+# Copy Vite build output to Flask static folder
 rm -rf ../backend/static
 mkdir -p ../backend/static
-cp -r build/* ../backend/static/
+cp -r dist/* ../backend/static/
 
-echo "✅ Build completed and copied to backend/static"
+echo "✅ Vite build completed and copied to backend/static"
